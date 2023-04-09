@@ -1,0 +1,103 @@
+@import 'colors';
+@import 'media-queries';
+
+// miras yapısı ile tekrardan kurtulma
+
+%align-center{
+    display: flex;
+    align-items: center;
+}
+
+%hover-item{
+    transform: scale(1.2);
+    transition: all .3s;
+}
+
+.navbar{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 10px rgba(#000000, 0.7);
+
+    &-logo{//.navbar-logo
+        color: $dark; 
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        margin-left: 20px;
+        @extend %align-center;
+
+        &:hover{//navbar-logo:hover
+            @extend %hover-item;
+        }
+    }
+
+    &_bars{// navbar_bars
+        opacity: 0;
+
+        @include tablet{
+            color: $dark;
+            opacity: 1;
+            position: absolute;
+            top: calc(50% - 1rem);
+            right: 20px;
+            font-size: 2rem;
+        }
+
+        &:hover{
+            @extend %hover-item;
+            cursor: pointer;
+        }
+    }
+
+    &_menu{//navbar_menu
+        margin-right: 20px;
+        @extend %align-center;
+
+        @include tablet{
+            display: none;
+        }
+
+        &_list{//navbar_menu_list
+            @extend %align-center;
+            list-style-type: none;
+            
+            &_item{//navbar_menu_list_item
+                color: $dark;
+                margin-left: 10px;
+                padding: 10px 0;
+
+                &-link{//navbar_menu_list_item-link
+                    text-decoration: none;
+                    color: $lime;
+                    transition: .3s ease-in;
+                    font-size: 17px;
+
+                    &:hover{
+                        color: $orangeRed;
+                        transition: .3s;
+                        font-size: 19px;
+                    }
+                }
+
+                #button{
+                    padding: 10px 20px;
+                    border: none;
+                    outline: none;
+                    border-radius: 4px;
+                    background-color: $lime;
+                    margin-left: 20px;
+                    color: $light;
+
+                    &:hover{
+                        background-color: $orangeRed;
+                        transition: .3s; 
+                    }
+                }
+            }
+        }
+    }
+}

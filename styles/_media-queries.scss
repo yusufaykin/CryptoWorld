@@ -1,0 +1,14 @@
+// tablet durumuna geçerken kullanıldıgı yerde içi doldurulacaktır!
+
+@mixin tablet{
+    @media screen and (max-width: 768px) { // tablet ile çağrılır
+        @content; // boyutlandırmaya gerek yoktur.
+    }
+}
+
+//telefonlara göre boyutlandırmada içi doldurulacaktır!
+@mixin mobile{
+    @media screen and (max-width: 540px) {
+        @content;
+    }
+}
